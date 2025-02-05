@@ -1,0 +1,16 @@
+---
+version: "3"
+service:
+  database:
+    container_name: devopsdb
+    build: "./Docker-db"
+    ports:
+      - "2509:3306"
+
+  application:
+    container_name: devopsapp
+    build: "./Docker-app"
+    ports:
+      - "2508:8080"
+    depends_on:
+      - database                                    ~                  
